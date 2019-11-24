@@ -64,21 +64,16 @@ Mat DepthKinect;
 void rgbCallback(const sensor_msgs::ImageConstPtr& msg)
 {
 cv_bridge::CvImageConstPtr cv_ptr;
-
-  //ROS_INFO("1.1");
   try
   {
-  //ROS_INFO("1.");
-  cv_ptr = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::BGR8);
-  ColorKinect=cv_ptr->image;
+  	cv_ptr = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::BGR8);
+  	ColorKinect=cv_ptr->image;
   }
   catch (cv_bridge::Exception& ex)
   {
 	ROS_ERROR("cv_bridge exception: %s", ex.what());
-  //ROS_INFO("2.");
-  exit(-1);
+  	exit(-1);
   }
-//  waitKey(30);
 }
 
 
@@ -88,17 +83,13 @@ void depthCallback(const sensor_msgs::ImageConstPtr& msg)
   try
   {
 	 cv_ptr = cv_bridge::toCvCopy(msg,"");
-   DepthKinect = cv_ptr-> image;
-   //ROS_INFO("3.");
+   	DepthKinect = cv_ptr-> image;
   }
   catch (cv_bridge::Exception& ex)
   {
   	ROS_ERROR("cv_bridge exception: %s", ex.what());
-    //ROS_INFO("4.");
-    exit(-1);
+   	 exit(-1);
   }
-  //printf("%s\n","---" );
-  //printf("%i\n", depth1.rows );
 }
 
 
