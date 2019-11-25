@@ -139,9 +139,8 @@ int main(int, char**, const sensor_msgs::ImageConstPtr & msg_ptr)
         //line(ColorKinect,Point(320,0),Point(320,480),Scalar(255, 123, 50),2,1);
         //line(ColorKinect,Point(0,240),Point(640,240),Scalar(255, 123, 50),2,1);
         mask = mask1+mask2+mask3+mask4+mask5;
-        //Damos forma a la mascara para obtener una figura mas clara (Elipse)
+        
         Mat element = getStructuringElement(MORPH_ELLIPSE, Size(15, 15));
-        //Hacemos proceso de dilate y erode para mejorar el contorno
         dilate(mask, mask, element);
         erode(mask, mask, element);
         morphologyEx(mask,mask,MORPH_OPEN,element);
