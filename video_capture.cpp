@@ -126,8 +126,7 @@ int main(int, char**, const sensor_msgs::ImageConstPtr & msg_ptr)
        inRange(hsv, Scalar(170, 120, 70), Scalar(180, 255, 255), mask2);
         //creating masks to detect blue Color
         inRange(hsv, Scalar(100,65,75), Scalar(130, 255, 255), mask4);
-
-        // Creatin mask to detec yellow color
+        // Creatin mask to detect yellow color
         inRange(hsv, Scalar(20, 100, 100), Scalar(30, 255, 255), mask3);
 
         //creating masks to detect blue green
